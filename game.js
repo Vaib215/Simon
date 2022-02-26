@@ -2,6 +2,7 @@ let buttonColors = ['red','blue','green','yellow']
 let gamePattern = []
 let userClickedPattern = []
 let level=0
+let highscore=0
 function nextSequence() {
     let randomNumber = Math.floor((Math.random()*4))
     let randomChosenColour = buttonColors[randomNumber]
@@ -13,7 +14,9 @@ function nextSequence() {
         btn.classList.remove('animate')
     }, 200);
     level++;
+    highscore=Math.max(highscore,level)
     document.querySelector('h1').innerHTML="Level "+level
+    document.querySelector('footer').innerHTML="High Score: "+highscore+"<br>Made by Vaib"
     // console.log(btn)
 }
 let buttons = document.querySelectorAll('.btn')
@@ -72,11 +75,13 @@ function gameOver(){
         document.querySelector("body").classList.remove("game-over")
     }, 200);
     document.querySelector('h1').innerHTML="Game Over, Press Any Key to Restart"
+    highscore=Math.max(highscore,level)
     startOver();
 }
 function startOver(){
     gamePattern=[]
     userClickedPattern=[]
     level=0
+    highscore=Math.max(highscore,level)
     document.addEventListener('keypress',startGame,{once:true})
 }
