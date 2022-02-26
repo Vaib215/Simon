@@ -59,6 +59,7 @@ function animatePress(color) {
   }, 100);
 }
 document.addEventListener("keypress", startGame, { once: true });
+document.addEventListener("click", startGame, {once : true});
 
 function startGame() {
   level = 0;
