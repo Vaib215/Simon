@@ -109,6 +109,7 @@ function startOver() {
   level = 0;
   highscore = Math.max(highscore, level);
 
+  // handle it asynchronously
   setTimeout(() => {
     GAME_STARTED = false;
   }, 1000);
