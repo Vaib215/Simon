@@ -41,6 +41,7 @@ function nextSequence() {
 buttons.forEach((e) => e.addEventListener("click", handler));
 
 function handler() {
+  if (!GAME_STARTED) return;
   let userChosenColour = this.id;
   userClickedPattern.push(userChosenColour);
   // console.log(userClickedPattern)
@@ -60,14 +61,15 @@ function animatePress(color) {
     document.querySelector("#" + color).classList.remove("pressed");
   }, 100);
 }
-document.addEventListener("keypress", startGame, { once: true });
-document.addEventListener("click", startGame, { once: true });
+
+body.addEventListener("keypress", startGame);
+body.addEventListener("click", startGame);
 
 function startGame() {
-  level = 0;
-  if(GAME_STARTED) return;
-
+  if (GAME_STARTED) return;
   GAME_STARTED = true;
+
+  level = 0;
   setTimeout(() => {
     nextSequence();
   }, 200);
@@ -88,15 +90,16 @@ function checkAnswer(currentLevel) {
 function gameOver() {
   let song = new Audio("sounds/wrong.mp3");
   song.play();
+
   body.classList.add("game-over");
   setTimeout(() => {
     body.classList.remove("game-over");
   }, 200);
+
   document.querySelector("h1").innerHTML =
     "Game Over, Press Any Key to Restart";
   highscore = Math.max(highscore, level);
 
-  GAME_STARTED = false;
   startOver();
 }
 
@@ -105,6 +108,9 @@ function startOver() {
   userClickedPattern = [];
   level = 0;
   highscore = Math.max(highscore, level);
-  document.addEventListener("keypress", startGame, { once: true });
-  document.addEventListener("click", startGame, { once: true });
+
+  // handle it asynchronously
+  setTimeout(() => {
+    GAME_STARTED = false;
+  }, 1000);
 }
