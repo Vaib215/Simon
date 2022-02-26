@@ -9,6 +9,8 @@ let userClickedPattern = [];
 let level = 0;
 let highscore = 0;
 
+let GAME_STARTED = false;
+
 if (localStorage.getItem("memory-game-vaibhav") != null) {
   highscore = JSON.parse(localStorage.getItem("memory-game-vaibhav")).highscore;
   footer.innerHTML = `High Score: ${highscore} <br/> Made By Vaib`;
@@ -63,20 +65,19 @@ document.addEventListener("click", startGame, { once: true });
 
 function startGame() {
   level = 0;
+  if(GAME_STARTED) return;
+
+  GAME_STARTED = true;
   setTimeout(() => {
     nextSequence();
   }, 200);
 }
 
 function checkAnswer(currentLevel) {
-  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
-    console.log("success");
-  } else {
-    console.log("false");
+  if (userClickedPattern[currentLevel] !== gamePattern[currentLevel]) {
     gameOver();
   }
   if (currentLevel === gamePattern.length - 1) {
-    console.log("end");
     setTimeout(() => {
       nextSequence();
     }, 1000);
@@ -94,6 +95,8 @@ function gameOver() {
   document.querySelector("h1").innerHTML =
     "Game Over, Press Any Key to Restart";
   highscore = Math.max(highscore, level);
+
+  GAME_STARTED = false;
   startOver();
 }
 
