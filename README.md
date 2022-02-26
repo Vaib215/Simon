@@ -3,6 +3,7 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Press+Start+2P&color=%230E2DFF&duration=4000&lines=This+is+Simon.;A+fun+memory+Game.;Made+using+Javascript.;Made+by+Vaib.;Click+to+play.)](https://vaib215.github.io/Simon/)
 
 This is a very addictive memory game made using JavaScript.
+This game stores highscore in local storage.
 
 ![Screenshot](images/ss.png)
 
@@ -24,5 +25,9 @@ See this demo video:
 ![Demo Video](images/game.gif)
 
 ## Author
-Vaibhav Kumar Singh
-[![Vaibhav Kumar Singh](https://readme-typing-svg.herokuapp.com?font=Robot-Bold&size=20&color=ffffff&lines=This+is+made+by+Vaib.;A+Web+Devloper;A+Competitive+Programmer;A+Python+Developer;A+Freelancer;A+Content+Creator)](https://vaib.carrd.co)
+
+[Vaibhav Kumar Singh](https://linkedin.com/in/vaib215)
+
+## Contributor
+
+[Pranay Raj](https://linkedin.com/in/masterpranay) : Added local storage feature to store highscore and simplified Code.
