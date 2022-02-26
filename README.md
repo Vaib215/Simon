@@ -1,6 +1,7 @@
 # Simon
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Press+Start+2P&color=%230E2DFF&duration=4000&lines=This+is+Simon.;A+fun+memory+Game.;Made+using+Javascript.;Made+by+Vaib.;Click+to+play.)](https://vaib215.github.io/Simon/)
+
 This is a very addictive memory game made using JavaScript.
 
 ![Screenshot](images/ss.png)
