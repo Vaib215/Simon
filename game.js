@@ -59,7 +59,7 @@ function animatePress(color) {
   }, 100);
 }
 document.addEventListener("keypress", startGame, { once: true });
-document.addEventListener("click", startGame, {once : true});
+document.addEventListener("click", startGame, { once: true });
 
 function startGame() {
   level = 0;
@@ -103,4 +103,5 @@ function startOver() {
   level = 0;
   highscore = Math.max(highscore, level);
   document.addEventListener("keypress", startGame, { once: true });
+  document.addEventListener("click", startGame, { once: true });
 }
